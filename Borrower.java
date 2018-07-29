@@ -20,14 +20,18 @@ public class Borrower extends Person
    public void addLoan(Loan aLoan)
    {
       //add loan into a loan array
-      System.out.println(aLoan.getLoanAmount());
-      System.out.println("addLoans   ---");
+      loans[loanCount] = aLoan;
+      System.out.println(loans[loanCount]);
+      loanCount += 1;
+      
    }
    
    public String getAllLoans()
    {
       //loop through the loan array and show all the loans for the person
-      
+      System.out.println("Loans for Borrower " + lastName + ", " + firstName + " include:\n");
+      for (int i = 0; i < loans.length; i++)
+         System.out.println("Loan " + i);// + " Dated: " + loanDate + " Amount: " + 
       return "getAllLoans";
    }
    
