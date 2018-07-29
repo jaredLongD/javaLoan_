@@ -20,6 +20,7 @@ public class Borrower extends Person
    public void addLoan(Loan aLoan)
    {
       //add loan into a loan array
+      loans[0].getLoanAmount();
       System.out.println("addLoans   ---");
    }
    

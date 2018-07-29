@@ -17,100 +17,92 @@ public class Date
    {
       try
       {   
-         //check for format mm/dd/yyyy
-         if (aDate.length() == 10 && aDate.charAt(2) == '/' && aDate.charAt(5) == '/')
+         //split the numbers in the string to and array for parsing
+         String[] data = aDate.split("/");            
+         
+         //placeholder variables to check valid month/day/year numbers
+         int mCheck = Integer.parseInt(data[0]);
+         int dCheck = Integer.parseInt(data[1]);
+         int yCheck = Integer.parseInt(data[2]);
+         
+         if (mCheck >= 1 && mCheck <= 12)
          {
-            //split the numbers in the string to and array for parsing
-            String[] data = aDate.split("/");            
-            
-            //placeholder variables to check valid month/day/year numbers
-            int mCheck = Integer.parseInt(data[0]);
-            int dCheck = Integer.parseInt(data[1]);
-            int yCheck = Integer.parseInt(data[2]);
-            
-            if (mCheck >= 1 && mCheck <= 12)
+            month = mCheck;
+            //checking for months with 30 days
+            if (mCheck == 4 || mCheck == 6 || mCheck == 9 || mCheck ==11)
             {
-               month = mCheck;
-               //checking for months with 30 days
-               if (mCheck == 4 || mCheck == 6 || mCheck == 9 || mCheck ==11)
+               if (dCheck >= 1 && dCheck <= 30)
                {
-                  if (dCheck >= 1 && dCheck <= 30)
-                  {
-                     day = dCheck;
-                  }
-                  else
-                  {
-                     throw new Exception("Invalid Day");
-                  }
+                  day = dCheck;
                }
-               //checking for months with 31 days
-               else if (mCheck == 1 || mCheck == 3 || mCheck == 5 || mCheck == 7 || mCheck == 8 || mCheck == 10 || mCheck == 12)
-               {
-                  if (dCheck >= 1 && dCheck <= 31)
-                  {
-                     day = dCheck;
-                  }
-                  else
-                  {
-                     throw new Exception("Invalid Day");
-                  }
-               }
-               //checking for leapyear
                else
                {
-                  //up to 29 days
-                  if(isLeapYear(yCheck))
+                  throw new Exception("Invalid Day");
+               }
+            }
+            //checking for months with 31 days
+            else if (mCheck == 1 || mCheck == 3 || mCheck == 5 || mCheck == 7 || mCheck == 8 || mCheck == 10 || mCheck == 12)
+            {
+               if (dCheck >= 1 && dCheck <= 31)
+               {
+                  day = dCheck;
+               }
+               else
+               {
+                  throw new Exception("Invalid Day");
+               }
+            }
+            //checking for leapyear
+            else
+            {
+               //up to 29 days
+               if(isLeapYear(yCheck))
+               {
+                  if (dCheck >= 1 && dCheck <= 29)
                   {
-                     if (dCheck >= 1 && dCheck <= 29)
-                     {
-                        day = dCheck;
-                     }
-                     else
-                     {
-                        throw new Exception("Invalid February Day");
-                     } 
+                     day = dCheck;
                   }
-                  //up to 28 days
-                  else if (!isLeapYear(yCheck))
+                  else
                   {
-                     if (dCheck >= 1 && dCheck <= 28)
-                     {
-                        day = dCheck;
-                     }
-                     else
-                     {
-                        throw new Exception("Invalid February Day");
-                     }
+                     throw new Exception("Invalid February Day");
+                  } 
+               }
+               //up to 28 days
+               else if (!isLeapYear(yCheck))
+               {
+                  if (dCheck >= 1 && dCheck <= 28)
+                  {
+                     day = dCheck;
                   }
                   else
                   {
                      throw new Exception("Invalid February Day");
                   }
-               } 
-            }
-            else
-            {
-               throw new Exception("Invalid Month");
-            }
-                     
-            //set the year
-            if (yCheck >= 1000 && yCheck <= 9999)
-            {
-               year = yCheck;
-            }
-            else
-            {
-              throw new Exception("Invalid Year"); 
-            }
+               }
+               else
+               {
+                  throw new Exception("Invalid February Day");
+               }
+            } 
          }
          else
          {
-            throw new Exception("Invalid Date Format");
+            throw new Exception("Invalid Month");
+         }
+                  
+         //set the year
+         if (yCheck >= 1000 && yCheck <= 9999)
+         {
+            year = yCheck;
+         }
+         else
+         {
+           throw new Exception("Invalid Year"); 
          }
       }
       catch (Exception e)
       {
-         System.out.println("Error: " + e.getMessage());
+         System.out.println("Invalid Date Format: " + e.getMessage());
       }
    }
    
