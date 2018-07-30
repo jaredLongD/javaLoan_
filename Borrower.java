@@ -2,7 +2,7 @@
 //name: Jared Long
 //date: 29 JUL 2018
 //project: Final Project
-
+import java.lang.StringBuilder;
 
 public class Borrower extends Person
 {
@@ -32,12 +32,15 @@ public class Borrower extends Person
    
    public String getAllLoans()
    {
-      System.out.println("\nLoans for Borrower " + lastName + ", " + firstName + " include:");
+      //initial message for borrower
+      String s;
+      StringBuilder sBldr = new StringBuilder("\nLoans for Borrower " + lastName + ", " + firstName + " include:");
       
       //loop through the loan array and show all the loans for the person
       for (int i = 0; i < loanCount; i++)
-         System.out.println("Loan " + (i+1) + " Dated: " + loans[i].getLoanDate() + " Amount: " + String.format("$%9.2f",loans[i].getLoanAmount()));
-      return " ";
+         sBldr.append("\nLoan " + (i+1) + " Dated: " + loans[i].getLoanDate() + " Amount: " + String.format("$%9.2f",loans[i].getLoanAmount()));
+      s = sBldr.toString();
+      return s;
    }
    
    public String toString()
