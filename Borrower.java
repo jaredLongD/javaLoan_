@@ -1,4 +1,7 @@
-
+//preamble
+//name: Jared Long
+//date: 29 JUL 2018
+//project: Final Project
 
 
 public class Borrower extends Person
@@ -8,12 +11,13 @@ public class Borrower extends Person
    
    public Borrower(String aFName, String aLName, String aDate, Loan aLoan)
    {
-      super(aFName, aLName, aDate);
-          
+      //call to person to set names/date
+      super(aFName, aLName, aDate);     
    }
    
    public Borrower(String aFName, String aLName, String aDate)
    {
+      //call to person to set names/date
       super(aFName, aLName, aDate);   
    }
    
@@ -28,8 +32,9 @@ public class Borrower extends Person
    
    public String getAllLoans()
    {
-      //loop through the loan array and show all the loans for the person
       System.out.println("\nLoans for Borrower " + lastName + ", " + firstName + " include:");
+      
+      //loop through the loan array and show all the loans for the person
       for (int i = 0; i < loanCount; i++)
          System.out.println("Loan " + (i+1) + " Dated: " + loans[i].getLoanDate() + " Amount: " + String.format("$%9.2f",loans[i].getLoanAmount()));
       return " ";

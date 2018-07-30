@@ -1,4 +1,7 @@
-
+//preamble
+//name: Jared Long
+//date: 29 JUL 2018
+//project: Final Project
 
 public class Date
 {
@@ -25,9 +28,11 @@ public class Date
          int dCheck = Integer.parseInt(data[1]);
          int yCheck = Integer.parseInt(data[2]);
          
+         //is the month 1-12?
          if (mCheck >= 1 && mCheck <= 12)
          {
             month = mCheck;
+            
             //checking for months with 30 days
             if (mCheck == 4 || mCheck == 6 || mCheck == 9 || mCheck ==11)
             {
@@ -90,7 +95,7 @@ public class Date
             throw new Exception("Invalid Month");
          }
                   
-         //set the year
+         //check the year
          if (yCheck >= 1000 && yCheck <= 9999)
          {
             year = yCheck;

@@ -1,4 +1,7 @@
-
+//preamble
+//name: Jared Long
+//date: 29 JUL 2018
+//project: Final Project
 
 public class Person
 {
@@ -10,6 +13,8 @@ public class Person
    {
       firstName = aFName;
       lastName = aLName;     
+      
+      //catch date exceptions
       try
       {
          dateOfBirth = new Date(aDate);
@@ -28,6 +33,7 @@ public class Person
    
    public String getFullName()
    {
+      //return string of person's full name
       String fullName;
       fullName = lastName + ", " + firstName;
       return fullName;
@@ -35,6 +41,7 @@ public class Person
    
    public void setDateOfBirth(String aDate)
    {
+      //catch date exceptions
       try
       {
          dateOfBirth = new Date(aDate);

@@ -1,4 +1,7 @@
-
+//preamble
+//name: Jared Long
+//date: 29 JUL 2018
+//project: Final Project
 
 public class Loan
 {
@@ -17,6 +20,8 @@ public class Loan
          interestRate = setLoanRate(rate);
          loanLength = setLoanLength(months);
          loanAmount = setLoanAmount(amt);
+         
+         //add loan to loan array in Borrower Class
          aPerson.addLoan(this);
       }
       catch (Exception e)
@@ -54,12 +59,12 @@ public class Loan
       return dblCheck/100;
    }
    
-   public int setLoanLength(String m)
+   public int setLoanLength(String months)
    {
       int intCheck;
       
       //converted to int
-      intCheck = Integer.parseInt(m);
+      intCheck = Integer.parseInt(months);
       
       //if < 0, then set to 0
       if (intCheck < 0)
@@ -76,8 +81,8 @@ public class Loan
    
    public double setLoanAmount(String amt)
    {
-
       double dblCheck;
+      
       //converted to double
       dblCheck = Double.parseDouble(amt);
       
