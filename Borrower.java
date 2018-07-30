@@ -21,18 +21,18 @@ public class Borrower extends Person
    {
       //add loan into a loan array
       loans[loanCount] = aLoan;
-      System.out.println(loans[loanCount]);
-      loanCount += 1;
       
+      //increment loanCount
+      loanCount += 1;
    }
    
    public String getAllLoans()
    {
       //loop through the loan array and show all the loans for the person
-      System.out.println("Loans for Borrower " + lastName + ", " + firstName + " include:\n");
-      for (int i = 0; i < loans.length; i++)
-         System.out.println("Loan " + i);// + " Dated: " + loanDate + " Amount: " + 
-      return "getAllLoans";
+      System.out.println("\nLoans for Borrower " + lastName + ", " + firstName + " include:");
+      for (int i = 0; i < loanCount; i++)
+         System.out.println("Loan " + (i+1) + " Dated: " + loans[i].getLoanDate() + " Amount: " + String.format("$%9.2f",loans[i].getLoanAmount()));
+      return " ";
    }
    
    public String toString()
